@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ef">
+  <meta name="description" content="ComuniCAWeb: comunicador alternativo gratuito, simples e personalizável.">
+  <title>ComuniCAWeb — minha voz, do meu jeito</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o comunicador</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="ComuniCAWeb, início">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span>Comuni<span class="brand-accent">CA</span>Web</span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-button" id="contrast-toggle" type="button" aria-pressed="false" title="Alternar alto contraste"><span aria-hidden="true">◐</span><span class="button-label">Contraste</span></button>
+      <button class="icon-button" id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">⚙</span><span class="button-label">Ajustes</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="layout">
+    <section class="welcome" id="inicio" aria-labelledby="welcome-title">
+      <div>
+        <p class="eyebrow">COMUNICADOR ALTERNATIVO</p>
+        <h1 id="welcome-title">Minha voz,<br><span>do meu jeito.</span></h1>
+        <p class="welcome-copy">Toque nos cartões para montar uma mensagem. Quando estiver pronta, fale em voz alta.</p>
+      </div>
+      <div class="welcome-illustration" aria-hidden="true"><span>👋</span><i>Olá!</i><b>♡</b></div>
+    </section>
+
+    <section class="composer" aria-labelledby="composer-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">SUA MENSAGEM</p><h2 id="composer-title">O que você quer dizer?</h2></div>
+        <button class="text-button" id="clear-message" type="button">Limpar mensagem</button>
+      </div>
+      <div class="message-box" aria-live="polite" aria-atomic="true">
+        <p id="message-text" class="message-placeholder">Sua mensagem aparece aqui…</p>
+        <button class="speak-button" id="speak-message" type="button" disabled><span aria-hidden="true">🔊</span> Falar mensagem</button>
+      </div>
+    </section>
+
+    <nav class="category-nav" aria-label="Categorias de comunicação" id="categories"></nav>
+
+    <section class="cards-section" aria-labelledby="cards-title">
+      <div class="section-heading card-heading"><div><p class="eyebrow" id="category-eyebrow">ESCOLHA UM CARTÃO</p><h2 id="cards-title">Toque para adicionar</h2></div><span class="hint">Você pode escolher mais de um</span></div>
+      <div class="card-grid" id="card-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="custom-section" aria-labelledby="custom-title">
+      <div class="custom-intro"><span class="custom-icon" aria-hidden="true">＋</span><div><h2 id="custom-title">Uma frase sua</h2><p>Adicione uma frase que você usa no dia a dia.</p></div></div>
+      <form id="custom-form" class="custom-form"><label class="visually-hidden" for="custom-phrase">Digite sua frase</label><input id="custom-phrase" name="phrase" maxlength="60" placeholder="Ex.: Quero ouvir música" required><button type="submit">Adicionar frase</button></form>
+    </section>
+
+    <aside class="settings-panel" id="settings-panel" hidden aria-labelledby="settings-title">
+      <div class="section-heading"><div><p class="eyebrow">PERSONALIZE</p><h2 id="settings-title">Ajustes de leitura</h2></div><button class="close-button" id="settings-close" type="button" aria-label="Fechar ajustes">×</button></div>
+      <label class="range-label" for="font-size">Tamanho dos cartões <output id="font-output">Normal</output></label>
+      <input type="range" id="font-size" min="0" max="2" value="1" step="1">
+      <p class="settings-note">Suas frases personalizadas ficam salvas neste dispositivo.</p>
+    </aside>
+  </main>
+  <footer><span>ComuniCAWeb</span><span>Comunicação é um direito de todos.</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
